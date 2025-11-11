@@ -17,13 +17,13 @@ interface MainContentProps {
 
 const WelcomeScreen: React.FC = () => (
     <div className="flex-grow flex items-center justify-center">
-        <div className="text-center p-8 bg-brand-surface rounded-xl shadow-lg max-w-2xl mx-auto">
+        <div className="text-center p-8 bg-brand-surface rounded-xl shadow-md max-w-2xl mx-auto border border-brand-border">
             <div className="text-5xl mb-4">🚀</div>
-            <h2 className="text-3xl font-bold text-brand-text mb-2">Chào mừng đến với Ma Trận Ý Tưởng TikTok</h2>
+            <h2 className="text-3xl font-bold text-brand-text-main mb-2">Chào mừng đến với Ma Trận Ý Tưởng TikTok</h2>
             <p className="text-brand-text-muted mb-6">
                 Nhập từ khóa liên quan đến chiến dịch, sản phẩm, hoặc insight học sinh vào thanh tìm kiếm phía trên để bắt đầu tạo ý tưởng video lan truyền. AI sẽ phân tích, chấm điểm, và tối ưu hóa nội dung cho bạn.
             </p>
-            <div className="bg-brand-dark p-4 rounded-lg text-left text-sm">
+            <div className="bg-gray-50 p-4 rounded-lg text-left text-sm border border-brand-border">
                 <p className="font-mono text-brand-text-muted">Ví dụ từ khóa:</p>
                 <ul className="list-disc list-inside mt-2 font-mono text-brand-primary">
                     <li>Thi thử TSA, 2k8, mất gốc Hóa</li>

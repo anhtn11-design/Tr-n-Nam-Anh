@@ -76,7 +76,7 @@ const App: React.FC = () => {
   const currentLoadingMessage = isRemixing ? "AI đang trộn và mở rộng ý tưởng..." : "AI đang sáng tạo ý tưởng...";
 
   return (
-    <div className="flex flex-col h-screen font-sans bg-brand-dark text-brand-text">
+    <div className="flex flex-col h-screen font-sans bg-brand-bg text-brand-text-main">
       <Header 
         onGenerate={handleGenerate} 
         onRemix={handleRemix}
@@ -91,7 +91,7 @@ const App: React.FC = () => {
         {ideas.length > 0 && (
           <Sidebar ideas={displayedIdeas} onSelectIdea={handleSelectIdea} selectedIdea={selectedIdea} />
         )}
-        <main className="flex-1 flex flex-col overflow-y-auto p-4 md:p-6 lg:p-8 bg-brand-dark">
+        <main className="flex-1 flex flex-col overflow-y-auto p-4 md:p-6 lg:p-8 bg-brand-bg">
           {(isLoading || isRemixing) && (
             <div className="flex-grow flex items-center justify-center">
               <div className="text-center">
@@ -102,7 +102,7 @@ const App: React.FC = () => {
           )}
           {!(isLoading || isRemixing) && (error || remixError) && (
             <div className="flex-grow flex items-center justify-center">
-              <div className="bg-red-900/50 border border-red-500 text-red-300 px-4 py-3 rounded relative" role="alert">
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                 <strong className="font-bold">Lỗi: </strong>
                 <span className="block sm:inline">{error || remixError}</span>
               </div>

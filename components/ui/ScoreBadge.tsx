@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface ScoreBadgeProps {
@@ -9,9 +8,9 @@ interface ScoreBadgeProps {
 
 export const ScoreBadge: React.FC<ScoreBadgeProps> = ({ score, priority, large = false }) => {
   const getPriorityColorClasses = () => {
-    if (priority.includes('Top Tier')) return 'bg-emerald-500/20 text-emerald-300 border-emerald-500';
-    if (priority.includes('Thử nghiệm')) return 'bg-amber-500/20 text-amber-300 border-amber-500';
-    return 'bg-slate-500/20 text-slate-300 border-slate-500';
+    if (priority.includes('Top Tier')) return 'bg-brand-primary/10 text-brand-primary border-brand-primary/50';
+    if (priority.includes('Thử nghiệm')) return 'bg-brand-secondary/20 text-teal-600 border-brand-secondary/50';
+    return 'bg-gray-100 text-brand-text-muted border-gray-200';
   };
   
   const baseClasses = 'flex items-center gap-2 rounded-full border';
