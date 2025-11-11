@@ -39,8 +39,8 @@ export const Header: React.FC<HeaderProps> = ({ onGenerate, onRemix, setViewMode
       onClick={() => setViewMode(mode)}
       className={`px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
         activeViewMode === mode && !isRemixView
-          ? 'bg-brand-primary text-white shadow-sm' 
-          : 'bg-transparent text-brand-text-muted hover:bg-gray-100'
+          ? 'bg-brand-primary text-brand-dark' 
+          : 'bg-brand-surface text-brand-text-muted hover:bg-brand-muted'
       }`}
       disabled={isRemixView}
     >
@@ -49,14 +49,14 @@ export const Header: React.FC<HeaderProps> = ({ onGenerate, onRemix, setViewMode
   );
 
   return (
-    <header className="flex-shrink-0 bg-brand-surface border-b border-brand-border p-4 shadow-sm z-10">
+    <header className="flex-shrink-0 bg-brand-surface border-b border-brand-muted p-4 shadow-md z-10">
       <div className="flex flex-col items-center justify-between gap-4">
         <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4 cursor-pointer" onClick={onLogoClick}>
-            <div className="bg-brand-primary p-2 rounded-lg shadow-md">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            <div className="bg-brand-primary p-2 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a202c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
             </div>
-            <h1 className="text-xl font-bold text-brand-text-main">HOCMAI: Ma Trận Ý Tưởng TikTok</h1>
+            <h1 className="text-xl font-bold text-brand-text">HOCMAI: Ma Trận Ý Tưởng TikTok</h1>
           </div>
 
           <form onSubmit={handleSubmit} className="flex-grow md:max-w-xl w-full flex flex-col items-center gap-2">
@@ -66,19 +66,19 @@ export const Header: React.FC<HeaderProps> = ({ onGenerate, onRemix, setViewMode
                 value={keywords}
                 onChange={(e) => setKeywords(e.target.value)}
                 placeholder="Từ khóa: 'luyện đề HSA', '2k8 mất gốc Toán'..."
-                className="w-full px-4 py-2 bg-gray-50 border border-brand-border rounded-lg focus:ring-2 focus:ring-brand-primary focus:outline-none transition"
+                className="w-full px-4 py-2 bg-brand-dark border border-brand-muted rounded-lg focus:ring-2 focus:ring-brand-primary focus:outline-none transition"
               />
               <select 
                 value={videoType} 
                 onChange={(e) => setVideoType(e.target.value as VideoType)}
-                className="px-3 py-2 bg-gray-50 border border-brand-border rounded-lg focus:ring-2 focus:ring-brand-primary focus:outline-none transition appearance-none"
+                className="px-3 py-2 bg-brand-dark border border-brand-muted rounded-lg focus:ring-2 focus:ring-brand-primary focus:outline-none transition appearance-none"
               >
                 <option value="all">Tất cả</option>
                 <option value="in-house">Nội bộ</option>
                 <option value="ctv">CTV Review</option>
                 <option value="koc">KOC Lan tỏa</option>
               </select>
-              <button type="submit" className="px-5 py-2 bg-brand-primary text-white font-semibold rounded-lg hover:bg-brand-primary-hover transition-colors duration-200">
+              <button type="submit" className="px-5 py-2 bg-brand-primary text-brand-dark font-semibold rounded-lg hover:bg-brand-primary-hover transition-colors duration-200">
                 Tạo ý tưởng
               </button>
             </div>
@@ -88,7 +88,7 @@ export const Header: React.FC<HeaderProps> = ({ onGenerate, onRemix, setViewMode
                         type="checkbox"
                         checked={creativeOverdrive}
                         onChange={(e) => setCreativeOverdrive(e.target.checked)}
-                        className="w-4 h-4 rounded bg-gray-50 border-brand-border text-brand-primary focus:ring-brand-primary"
+                        className="w-4 h-4 rounded bg-brand-dark border-brand-muted text-brand-primary focus:ring-brand-primary"
                     />
                     Đột phá Sáng tạo
                 </label>
@@ -104,13 +104,13 @@ export const Header: React.FC<HeaderProps> = ({ onGenerate, onRemix, setViewMode
                         className="w-20 md:w-24 cursor-pointer"
                         title={`Độ sâu thông tin: ${informationDepth}`}
                     />
-                    <span className="font-mono text-brand-text-main">{informationDepth}</span>
+                    <span className="font-mono text-brand-text">{informationDepth}</span>
                 </div>
             </div>
           </form>
 
           {hasIdeas && (
-            <div className="flex items-center gap-2 bg-gray-50 p-1 rounded-lg border border-brand-border">
+            <div className="flex items-center gap-2 bg-brand-dark p-1 rounded-lg">
               <ViewButton mode="dashboard" label="Bảng tin" />
               <ViewButton mode="matrix" label="Ma trận" />
               <ViewButton mode="chart" label="Biểu đồ" />
@@ -119,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({ onGenerate, onRemix, setViewMode
         </div>
         
         {hasIdeas && (
-          <div className="w-full mt-2 p-4 bg-gray-50/50 rounded-lg border border-brand-border">
+          <div className="w-full mt-2 p-4 bg-brand-dark rounded-lg border border-brand-muted">
              <form onSubmit={handleRemixSubmit} className="flex flex-col md:flex-row items-center gap-3">
               <label className="text-md font-semibold text-brand-primary whitespace-nowrap">Trộn & Mở Rộng Ý Tưởng:</label>
               <input
@@ -127,18 +127,18 @@ export const Header: React.FC<HeaderProps> = ({ onGenerate, onRemix, setViewMode
                 value={newKeywords}
                 onChange={(e) => setNewKeywords(e.target.value)}
                 placeholder="Thêm từ khóa mới '2k9', 'voucher'..."
-                className="flex-grow w-full px-4 py-2 bg-brand-surface border border-brand-border rounded-lg focus:ring-2 focus:ring-brand-primary focus:outline-none transition"
+                className="flex-grow w-full px-4 py-2 bg-brand-surface border border-brand-muted rounded-lg focus:ring-2 focus:ring-brand-primary focus:outline-none transition"
               />
               <select 
                 value={mixMode} 
                 onChange={(e) => setMixMode(e.target.value as MixMode)}
-                className="px-3 py-2 bg-brand-surface border border-brand-border rounded-lg focus:ring-2 focus:ring-brand-primary focus:outline-none transition appearance-none"
+                className="px-3 py-2 bg-brand-surface border border-brand-muted rounded-lg focus:ring-2 focus:ring-brand-primary focus:outline-none transition appearance-none"
               >
                 <option value="remix">Remix</option>
                 <option value="spin-off">Spin-off</option>
                 <option value="cross-theme">Cross-theme</option>
               </select>
-              <button type="submit" disabled={isRemixing} className="px-5 py-2 bg-brand-secondary text-white font-semibold rounded-lg hover:bg-teal-400 transition-colors duration-200 disabled:bg-gray-300 disabled:cursor-not-allowed">
+              <button type="submit" disabled={isRemixing} className="px-5 py-2 bg-cyan-500 text-white font-semibold rounded-lg hover:bg-cyan-400 transition-colors duration-200 disabled:bg-brand-muted disabled:cursor-not-allowed">
                 {isRemixing ? 'Đang xử lý...' : 'Thực hiện'}
               </button>
             </form>

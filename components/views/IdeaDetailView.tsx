@@ -11,9 +11,9 @@ const ScoreBar: React.FC<{ label: string; score: number; maxScore?: number; colo
     <div>
       <div className="flex justify-between mb-1">
         <span className="text-sm font-medium text-brand-text-muted">{label}</span>
-        <span className="text-sm font-medium text-brand-text-main">{score.toFixed(1)} / {maxScore}</span>
+        <span className="text-sm font-medium text-brand-text">{score.toFixed(1)} / {maxScore}</span>
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-2.5">
+      <div className="w-full bg-brand-muted rounded-full h-2.5">
         <div className={`${colorClass} h-2.5 rounded-full`} style={{ width: `${(score / maxScore) * 100}%` }}></div>
       </div>
     </div>
@@ -46,20 +46,20 @@ export const IdeaDetailView: React.FC<IdeaDetailViewProps> = ({ idea }) => {
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
             <div>
                 <p className="text-sm text-brand-primary font-semibold">{idea.category} • {idea.videoFormat}</p>
-                <h2 className="text-3xl font-bold text-brand-text-main mt-1">{idea.upgradedTitle}</h2>
+                <h2 className="text-3xl font-bold text-brand-text mt-1">{idea.upgradedTitle}</h2>
                 <p className="mt-2 text-brand-text-muted italic">Ý tưởng gốc: "{idea.title}"</p>
             </div>
             <div className="flex-shrink-0">
                 <ScoreBadge score={idea.totalScore} priority={idea.priority} large />
             </div>
         </div>
-        <p className="mt-2 text-brand-text-muted">Triển khai: <span className="font-semibold text-brand-text-main">{idea.implementationSuggestion}</span></p>
+        <p className="mt-2 text-brand-text-muted">Triển khai: <span className="font-semibold text-brand-text">{idea.implementationSuggestion}</span></p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-6">
             <DetailSection title="Nội dung & Kịch bản">
-              <div className="space-y-4 text-brand-text-main">
+              <div className="space-y-4 text-brand-text">
                 <div>
                     <h4 className="font-semibold text-brand-text-muted">Tóm tắt</h4>
                     <p>{idea.contentSummary}</p>
@@ -75,13 +75,13 @@ export const IdeaDetailView: React.FC<IdeaDetailViewProps> = ({ idea }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <h4 className="font-semibold text-brand-text-muted mb-2">Format Remix</h4>
-                  <ul className="list-disc list-inside space-y-2 text-brand-text-main">
+                  <ul className="list-disc list-inside space-y-2 text-brand-text">
                     {idea.formatRemixes.map((format, i) => <li key={i}>{format}</li>)}
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-semibold text-brand-text-muted mb-2">Tone Remix (Tiêu đề)</h4>
-                  <ul className="list-disc list-inside space-y-2 text-brand-text-main">
+                  <ul className="list-disc list-inside space-y-2 text-brand-text">
                     {idea.toneRemixes.map((remix, i) => <li key={i}><strong>{remix.tone}:</strong> "{remix.upgradedTitle}"</li>)}
                   </ul>
                 </div>
@@ -96,24 +96,24 @@ export const IdeaDetailView: React.FC<IdeaDetailViewProps> = ({ idea }) => {
                             <div className="space-y-4">
                                 {idea.hooks.full?.length > 0 && (
                                 <div>
-                                    <h5 className="font-bold text-sm text-brand-text-main">Hook đầy đủ (Giọng nói)</h5>
-                                    <ul className="list-disc list-inside space-y-1 text-brand-text-main mt-1">
+                                    <h5 className="font-bold text-sm text-brand-text">Hook đầy đủ (Giọng nói)</h5>
+                                    <ul className="list-disc list-inside space-y-1 text-brand-text mt-1">
                                     {idea.hooks.full.map((hook, i) => <li key={`full-${i}`}>{hook}</li>)}
                                     </ul>
                                 </div>
                                 )}
                                 {idea.hooks.mini?.length > 0 && (
                                 <div>
-                                    <h5 className="font-bold text-sm text-brand-text-main">Mini-hook (Tối ưu hóa)</h5>
+                                    <h5 className="font-bold text-sm text-brand-text">Mini-hook (Tối ưu hóa)</h5>
                                     <div className="space-y-3 mt-2">
                                         {idea.hooks.mini.map((hook, i) => (
-                                            <div key={`mini-${i}`} className="bg-gray-50 p-3 rounded-lg border border-brand-border transition-shadow hover:shadow-lg hover:border-brand-primary/50">
-                                                <p className="text-brand-text-main font-medium">"{hook.text}"</p>
+                                            <div key={`mini-${i}`} className="bg-brand-dark p-3 rounded-lg border border-brand-muted transition-shadow hover:shadow-lg hover:border-brand-primary/50">
+                                                <p className="text-brand-text font-medium">"{hook.text}"</p>
                                                 <div className="flex items-center justify-between mt-2 text-xs">
-                                                    <span className="px-2 py-1 font-mono bg-teal-100 text-teal-700 rounded-full">{hook.formula}</span>
+                                                    <span className="px-2 py-1 font-mono bg-cyan-900/70 text-cyan-300 rounded-full">{hook.formula}</span>
                                                     <div className="flex items-center gap-1.5">
                                                         <span className="font-semibold text-brand-text-muted">Retention Score:</span>
-                                                        <span className="font-bold text-brand-secondary text-sm">{hook.retentionScore}%</span>
+                                                        <span className="font-bold text-cyan-300 text-sm">{hook.retentionScore}%</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -123,8 +123,8 @@ export const IdeaDetailView: React.FC<IdeaDetailViewProps> = ({ idea }) => {
                                 )}
                                 {idea.hooks.reverse?.length > 0 && (
                                 <div>
-                                    <h5 className="font-bold text-sm text-brand-text-main">Hook đảo ngược</h5>
-                                    <ul className="list-disc list-inside space-y-1 text-brand-text-main mt-1">
+                                    <h5 className="font-bold text-sm text-brand-text">Hook đảo ngược</h5>
+                                    <ul className="list-disc list-inside space-y-1 text-brand-text mt-1">
                                     {idea.hooks.reverse.map((hook, i) => <li key={`reverse-${i}`}>{hook}</li>)}
                                     </ul>
                                 </div>
@@ -133,7 +133,7 @@ export const IdeaDetailView: React.FC<IdeaDetailViewProps> = ({ idea }) => {
                          </div>
                          <div>
                             <h4 className="font-semibold text-brand-text-muted mb-2">Phụ đề (Captions)</h4>
-                            <ul className="list-disc list-inside space-y-2 text-brand-text-main">
+                            <ul className="list-disc list-inside space-y-2 text-brand-text">
                                 {idea.captions.map((caption, i) => <li key={i}>{caption}</li>)}
                             </ul>
                          </div>
@@ -147,18 +147,18 @@ export const IdeaDetailView: React.FC<IdeaDetailViewProps> = ({ idea }) => {
                 <div className="space-y-4">
                     <div>
                         <p className="text-sm font-semibold text-brand-text-muted">Chiến lược sáng tạo</p>
-                        <p className="text-md font-bold text-brand-primary">{idea.creativeStrategy}</p>
+                        <p className="text-md font-bold text-purple-400">{idea.creativeStrategy}</p>
                     </div>
                      <div>
                         <p className="text-sm font-semibold text-brand-text-muted">Loại biến thể</p>
-                        <p className="text-md font-bold text-brand-secondary">{idea.variationType}</p>
+                        <p className="text-md font-bold text-cyan-400">{idea.variationType}</p>
                     </div>
                      <div>
                         <p className="text-sm font-semibold text-brand-text-muted">Cảm xúc chính</p>
-                        <p className="text-md font-bold text-brand-text-main">{idea.mainEmotion}</p>
+                        <p className="text-md font-bold text-brand-text">{idea.mainEmotion}</p>
                     </div>
                     <div className="pt-2">
-                        <ScoreBar label="Điểm Viral" score={idea.viralScore} maxScore={10} colorClass="bg-brand-secondary" />
+                        <ScoreBar label="Điểm Viral" score={idea.viralScore} maxScore={10} colorClass="bg-cyan-500" />
                     </div>
                 </div>
             </DetailSection>
@@ -175,7 +175,7 @@ export const IdeaDetailView: React.FC<IdeaDetailViewProps> = ({ idea }) => {
                 <DetailSection title="Hashtags">
                     <div className="flex flex-wrap gap-2">
                         {idea.hashtagPack.map((tag, i) => (
-                            <span key={i} className="bg-gray-200 text-brand-primary text-xs font-mono px-2 py-1 rounded">
+                            <span key={i} className="bg-brand-muted text-brand-primary text-xs font-mono px-2 py-1 rounded">
                                 {tag}
                             </span>
                         ))}
