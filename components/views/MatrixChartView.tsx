@@ -43,7 +43,7 @@ export const MatrixChartView: React.FC<MatrixChartViewProps> = ({ ideas, onSelec
         <ScatterChart
           margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#EAE6E1" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#E7E2DC" />
           <XAxis 
             type="number" 
             dataKey="x" 
@@ -68,7 +68,7 @@ export const MatrixChartView: React.FC<MatrixChartViewProps> = ({ ideas, onSelec
           <Scatter 
             name="Nội bộ" 
             data={inHouseData} 
-            fill="#BFBFE3" 
+            fill="#B5B5DE" 
             shape="circle" 
             onClick={(props) => onSelectIdea(props.original)} 
             className="cursor-pointer"
@@ -76,7 +76,7 @@ export const MatrixChartView: React.FC<MatrixChartViewProps> = ({ ideas, onSelec
           <Scatter 
             name="KOC/CTV" 
             data={kocData} 
-            fill="#C4E2E4" 
+            fill="#BBDADB" 
             shape="triangle" 
             onClick={(props) => onSelectIdea(props.original)} 
             className="cursor-pointer"

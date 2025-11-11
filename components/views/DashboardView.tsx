@@ -10,8 +10,8 @@ interface DashboardViewProps {
 }
 
 const COLORS = {
-    'Nội bộ': '#BFBFE3', // brand-primary
-    'KOC/CTV': '#C4E2E4', // brand-accent
+    'Nội bộ': '#B5B5DE', // brand-primary
+    'KOC/CTV': '#BBDADB', // brand-accent
 };
 
 export const DashboardView: React.FC<DashboardViewProps> = ({ ideas, onSelectIdea }) => {
@@ -109,7 +109,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ ideas, onSelectIde
                   <Cell key={`cell-${index}`} fill={COLORS[entry.name as keyof typeof COLORS] || '#8884d8'} />
                 ))}
               </Pie>
-              <Tooltip contentStyle={{ backgroundColor: '#FFFFFF', border: '1px solid #EAE6E1', borderRadius: '0.5rem' }}/>
+              <Tooltip contentStyle={{ backgroundColor: '#FAF8F5', border: '1px solid #E7E2DC', borderRadius: '0.5rem' }}/>
               <Legend />
             </PieChart>
           </ResponsiveContainer>
