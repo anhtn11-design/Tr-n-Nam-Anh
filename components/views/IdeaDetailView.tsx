@@ -107,13 +107,13 @@ export const IdeaDetailView: React.FC<IdeaDetailViewProps> = ({ idea }) => {
                                     <h5 className="font-bold text-sm text-brand-text">Mini-hook (Tối ưu hóa)</h5>
                                     <div className="space-y-3 mt-2">
                                         {idea.hooks.mini.map((hook, i) => (
-                                            <div key={`mini-${i}`} className="bg-brand-dark p-3 rounded-lg border border-brand-muted transition-shadow hover:shadow-lg hover:border-brand-primary/50">
+                                            <div key={`mini-${i}`} className="bg-brand-dark/50 p-3 rounded-lg border border-brand-muted transition-shadow hover:shadow-lg hover:border-brand-primary/50">
                                                 <p className="text-brand-text font-medium">"{hook.text}"</p>
                                                 <div className="flex items-center justify-between mt-2 text-xs">
-                                                    <span className="px-2 py-1 font-mono bg-cyan-900/70 text-cyan-300 rounded-full">{hook.formula}</span>
+                                                    <span className="px-2 py-1 font-mono bg-brand-accent text-brand-text rounded-full">{hook.formula}</span>
                                                     <div className="flex items-center gap-1.5">
                                                         <span className="font-semibold text-brand-text-muted">Retention Score:</span>
-                                                        <span className="font-bold text-cyan-300 text-sm">{hook.retentionScore}%</span>
+                                                        <span className="font-bold text-brand-accent text-sm">{hook.retentionScore}%</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -147,18 +147,18 @@ export const IdeaDetailView: React.FC<IdeaDetailViewProps> = ({ idea }) => {
                 <div className="space-y-4">
                     <div>
                         <p className="text-sm font-semibold text-brand-text-muted">Chiến lược sáng tạo</p>
-                        <p className="text-md font-bold text-purple-400">{idea.creativeStrategy}</p>
+                        <p className="text-md font-bold text-brand-primary">{idea.creativeStrategy}</p>
                     </div>
                      <div>
                         <p className="text-sm font-semibold text-brand-text-muted">Loại biến thể</p>
-                        <p className="text-md font-bold text-cyan-400">{idea.variationType}</p>
+                        <p className="text-md font-bold text-brand-secondary">{idea.variationType}</p>
                     </div>
                      <div>
                         <p className="text-sm font-semibold text-brand-text-muted">Cảm xúc chính</p>
                         <p className="text-md font-bold text-brand-text">{idea.mainEmotion}</p>
                     </div>
                     <div className="pt-2">
-                        <ScoreBar label="Điểm Viral" score={idea.viralScore} maxScore={10} colorClass="bg-cyan-500" />
+                        <ScoreBar label="Điểm Viral" score={idea.viralScore} maxScore={10} colorClass="bg-brand-secondary" />
                     </div>
                 </div>
             </DetailSection>

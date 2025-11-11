@@ -22,8 +22,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ ideas, onSelectIdea, selectedI
               onClick={() => onSelectIdea(idea)}
               className={`w-full text-left p-3 my-1 rounded-lg transition-colors duration-200 flex justify-between items-start gap-2 ${
                 selectedIdea?.id === idea.id
-                  ? 'bg-brand-primary/20'
-                  : 'hover:bg-brand-muted/50'
+                  ? 'bg-brand-primary/10'
+                  : 'hover:bg-brand-muted'
               }`}
             >
               <div className="flex-grow">

@@ -1,4 +1,3 @@
-
 import React, { useMemo } from 'react';
 import type { Idea } from '../../types';
 import { Card } from '../ui/Card';
@@ -11,8 +10,8 @@ interface DashboardViewProps {
 }
 
 const COLORS = {
-    'Nội bộ': '#0891b2', // cyan-600
-    'KOC/CTV': '#F43F8A', // brand-primary
+    'Nội bộ': '#BFBFE3', // brand-primary
+    'KOC/CTV': '#C4E2E4', // brand-accent
 };
 
 export const DashboardView: React.FC<DashboardViewProps> = ({ ideas, onSelectIdea }) => {
@@ -48,7 +47,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ ideas, onSelectIde
   }, [ideas]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-fade-in">
       <h2 className="text-2xl font-bold">Tổng Quan Bảng Tin</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Card className="p-6">
@@ -61,13 +60,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ ideas, onSelectIde
           </Card>
           <Card className="p-6">
               <h3 className="text-brand-text-muted font-semibold">Điểm Viral TB</h3>
-              <p className="text-4xl font-bold text-cyan-300">
+              <p className="text-4xl font-bold text-brand-secondary">
                   {(ideas.reduce((sum, i) => sum + i.viralScore, 0) / (ideas.length || 1)).toFixed(1)}
               </p>
           </Card>
            <Card className="p-6">
               <h3 className="text-brand-text-muted font-semibold">Điểm Tiềm năng TB</h3>
-              <p className="text-4xl font-bold text-brand-primary">
+              <p className="text-4xl font-bold text-brand-accent">
                   {(ideas.reduce((sum, i) => sum + i.scores.viralPotential, 0) / (ideas.length || 1)).toFixed(1)}
               </p>
           </Card>
@@ -78,14 +77,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ ideas, onSelectIde
           <h3 className="text-lg font-semibold p-4 border-b border-brand-muted">Top 5 Ý Tưởng Viral Nhất</h3>
           <ul className="p-2">
             {top5Ideas.map(idea => (
-              <li key={idea.id} onClick={() => onSelectIdea(idea)} className="flex justify-between items-center p-3 hover:bg-brand-muted/50 rounded-lg cursor-pointer">
+              <li key={idea.id} onClick={() => onSelectIdea(idea)} className="flex justify-between items-center p-3 hover:bg-brand-muted rounded-lg cursor-pointer">
                 <div>
                   <p className="font-medium text-brand-text">{idea.upgradedTitle}</p>
                   <p className="text-sm text-brand-text-muted">{idea.creativeStrategy} - {idea.variationType}</p>
                 </div>
                  <div className="text-right">
                     <ScoreBadge score={idea.totalScore} priority={idea.priority} />
-                    <p className="text-xs font-bold text-cyan-400 mt-1">Viral: {idea.viralScore.toFixed(1)}</p>
+                    <p className="text-xs font-bold text-brand-secondary mt-1">Viral: {idea.viralScore.toFixed(1)}</p>
                 </div>
               </li>
             ))}
@@ -110,7 +109,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ ideas, onSelectIde
                   <Cell key={`cell-${index}`} fill={COLORS[entry.name as keyof typeof COLORS] || '#8884d8'} />
                 ))}
               </Pie>
-              <Tooltip contentStyle={{ backgroundColor: '#1C162C', border: '1px solid #3A3055' }}/>
+              <Tooltip contentStyle={{ backgroundColor: '#FFFFFF', border: '1px solid #EAE6E1', borderRadius: '0.5rem' }}/>
               <Legend />
             </PieChart>
           </ResponsiveContainer>

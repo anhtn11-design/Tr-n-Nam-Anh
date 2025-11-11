@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
   <head>
@@ -12,13 +11,24 @@
         theme: {
           extend: {
             colors: {
-              'brand-dark': '#110E1B',
-              'brand-surface': '#1C162C',
-              'brand-muted': '#3A3055',
-              'brand-primary': '#F43F8A',
-              'brand-primary-hover': '#FF79B8',
-              'brand-text': '#F0F0F0',
-              'brand-text-muted': '#9B90C0',
+              'brand-dark': '#FAF8F5', // Page Background - Softer off-white
+              'brand-surface': '#FFFFFF', // Card, Sidebar Background
+              'brand-muted': '#EAE6E1', // Borders, Muted BG
+              'brand-primary': '#BFBFE3', // Periwinkle
+              'brand-primary-hover': '#B1B1D9', // Darker Periwinkle
+              'brand-secondary': '#F2D5DA', // Soft Pink (for badges, secondary stats)
+              'brand-accent': '#C4E2E4', // Teal (for action buttons, charts)
+              'brand-text': '#1F2937', // Dark Slate Gray
+              'brand-text-muted': '#6B7281', // Lighter Slate Gray
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: 0, transform: 'translateY(10px)' },
+                '100%': { opacity: 1, transform: 'translateY(0)' },
+              },
             },
           },
         },

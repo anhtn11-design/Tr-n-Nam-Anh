@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface ScoreBadgeProps {
@@ -9,12 +8,12 @@ interface ScoreBadgeProps {
 
 export const ScoreBadge: React.FC<ScoreBadgeProps> = ({ score, priority, large = false }) => {
   const getPriorityColorClasses = () => {
-    if (priority.includes('Top Tier')) return 'bg-brand-primary/20 text-pink-300 border-brand-primary';
-    if (priority.includes('Thử nghiệm')) return 'bg-cyan-500/20 text-cyan-300 border-cyan-500';
-    return 'bg-brand-muted/50 text-brand-text-muted border-brand-muted';
+    if (priority.includes('Top Tier')) return 'bg-brand-primary text-white';
+    if (priority.includes('Thử nghiệm')) return 'bg-brand-secondary text-brand-text';
+    return 'bg-brand-muted text-brand-text-muted';
   };
   
-  const baseClasses = 'flex items-center gap-2 rounded-full border';
+  const baseClasses = 'flex items-center gap-2 rounded-full font-sans';
   const sizeClasses = large ? 'px-4 py-2' : 'px-3 py-1';
   const textClasses = large ? 'text-lg' : 'text-sm';
   const scoreTextClasses = large ? 'text-xl' : 'text-base';
@@ -22,7 +21,7 @@ export const ScoreBadge: React.FC<ScoreBadgeProps> = ({ score, priority, large =
   return (
     <div className={`${baseClasses} ${sizeClasses} ${getPriorityColorClasses()}`}>
       <span className={`${scoreTextClasses} font-bold`}>{score.toFixed(1)}</span>
-      <span className={`${textClasses} font-semibold`}>{priority}</span>
+      <span className={`${textClasses} font-semibold`}>{priority.replace('⭐ ', '').replace('⚙️ ', '')}</span>
     </div>
   );
 };

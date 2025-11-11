@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import type { Idea } from '../../types';
@@ -13,7 +12,7 @@ const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     return (
-      <div className="p-2 bg-brand-dark border border-brand-muted rounded-lg shadow-lg text-sm">
+      <div className="p-2 bg-brand-surface border border-brand-muted rounded-lg shadow-lg text-sm">
         <p className="font-bold text-brand-primary">{data.title}</p>
         <p>Tác động: {data.y.toFixed(2)}</p>
         <p>Khả thi: {data.x.toFixed(2)}</p>
@@ -38,13 +37,13 @@ export const MatrixChartView: React.FC<MatrixChartViewProps> = ({ ideas, onSelec
   const kocData = chartData.filter(d => d.implementation === 'KOC/CTV');
 
   return (
-    <Card className="p-4 h-[70vh]">
+    <Card className="p-4 h-[70vh] animate-fade-in">
       <h2 className="text-xl font-bold mb-4">Ma trận Tác động vs. Khả thi</h2>
       <ResponsiveContainer width="100%" height="100%">
         <ScatterChart
           margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#3A3055" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#EAE6E1" />
           <XAxis 
             type="number" 
             dataKey="x" 
@@ -52,7 +51,7 @@ export const MatrixChartView: React.FC<MatrixChartViewProps> = ({ ideas, onSelec
             unit="" 
             domain={[1, 5]} 
             label={{ value: "Mức độ khả thi →", position: 'insideBottom', offset: -10 }}
-            stroke="#9B90C0"
+            stroke="#6B7281"
           />
           <YAxis 
             type="number" 
@@ -61,7 +60,7 @@ export const MatrixChartView: React.FC<MatrixChartViewProps> = ({ ideas, onSelec
             unit="" 
             domain={[1, 5]} 
             label={{ value: "← Mức độ tác động", angle: -90, position: 'insideLeft' }}
-            stroke="#9B90C0"
+            stroke="#6B7281"
           />
           <ZAxis type="number" dataKey="z" range={[60, 400]} name="Tổng điểm" unit="" />
           <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<CustomTooltip />} />
@@ -69,7 +68,7 @@ export const MatrixChartView: React.FC<MatrixChartViewProps> = ({ ideas, onSelec
           <Scatter 
             name="Nội bộ" 
             data={inHouseData} 
-            fill="#0891b2" 
+            fill="#BFBFE3" 
             shape="circle" 
             onClick={(props) => onSelectIdea(props.original)} 
             className="cursor-pointer"
@@ -77,7 +76,7 @@ export const MatrixChartView: React.FC<MatrixChartViewProps> = ({ ideas, onSelec
           <Scatter 
             name="KOC/CTV" 
             data={kocData} 
-            fill="#F43F8A" 
+            fill="#C4E2E4" 
             shape="triangle" 
             onClick={(props) => onSelectIdea(props.original)} 
             className="cursor-pointer"

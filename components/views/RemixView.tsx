@@ -16,7 +16,7 @@ const CompareCard: React.FC<{ title: string, children: React.ReactNode }> = ({ t
 const CompareView: React.FC<{ remixedIdea: RemixedIdea }> = ({ remixedIdea }) => {
   const { originalIdea, newPotentialScore, hooks, communicationGoal, videoFormat } = remixedIdea;
   return (
-    <div className="flex flex-col md:flex-row gap-4 p-4 bg-brand-surface border-t-2 border-cyan-500">
+    <div className="flex flex-col md:flex-row gap-4 p-4 bg-brand-surface border-t-2 border-brand-secondary">
       <CompareCard title="Ý Tưởng Gốc">
         <div>
           <p className="font-semibold text-brand-text-muted">Điểm:</p>
@@ -81,7 +81,7 @@ export const RemixView: React.FC<RemixViewProps> = ({ remixedIdeas }) => {
       <Card className="overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left text-brand-text-muted">
-            <thead className="text-xs text-brand-text uppercase bg-brand-muted/30">
+            <thead className="text-xs text-brand-text uppercase bg-brand-dark">
               <tr>
                 <th scope="col" className="px-6 py-3">Ý tưởng mới mở rộng</th>
                 <th scope="col" className="px-6 py-3">Chủ đề gốc</th>
@@ -95,14 +95,14 @@ export const RemixView: React.FC<RemixViewProps> = ({ remixedIdeas }) => {
               {remixedIdeas.map((idea) => (
                 <React.Fragment key={idea.id}>
                   <tr 
-                    className="bg-brand-surface border-b border-brand-muted hover:bg-brand-muted/50"
+                    className="bg-brand-surface border-b border-brand-muted hover:bg-brand-muted"
                   >
                     <th scope="row" className="px-6 py-4 font-medium text-brand-text whitespace-nowrap">
                       {idea.newExpandedIdea}
                     </th>
                     <td className="px-6 py-4 italic">{idea.originalTheme}</td>
                     <td className="px-6 py-4 text-center">
-                      <span className="px-2 py-1 text-xs font-medium text-purple-300 bg-purple-900/60 rounded-full">{idea.ideaSource}</span>
+                      <span className="px-2 py-1 text-xs font-medium text-white bg-brand-primary rounded-full">{idea.ideaSource}</span>
                     </td>
                     <td className="px-6 py-4 text-center font-bold text-lg text-brand-primary">{idea.newPotentialScore.toFixed(1)}</td>
                     <td className="px-6 py-4 text-brand-text italic max-w-xs truncate">"{idea.hooks?.[0]?.mini || 'N/A'}"</td>
